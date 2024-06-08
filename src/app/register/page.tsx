@@ -1,11 +1,11 @@
-import Navbar from "./layout/components/NavBar";
+import Navbar from "../layout/components/NavBar";
 
-export default function Home() {
+export default function Register() {
   return (
     <>
       <Navbar />
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <p>Hello world</p>
+        <p>desde registro</p>
       </main>
     </>
   );
