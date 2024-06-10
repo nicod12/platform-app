@@ -49,7 +49,6 @@ export const FormReg = () => {
                 name="usuario"
                 placeholder="Ingresa tu nombre de usuario"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm px-2 p-1"
-                required
               />
             </div>
             <div>
@@ -65,7 +64,6 @@ export const FormReg = () => {
                 name="password"
                 placeholder="Ingresa tu contraseña"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm px-2 p-1"
-                required
               />
             </div>
             <div>
@@ -81,7 +79,6 @@ export const FormReg = () => {
                 name="email"
                 placeholder="correo@correo.com"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm px-2 p-1"
-                required
               />
             </div>
             <div>
