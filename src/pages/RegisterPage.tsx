@@ -1,4 +1,5 @@
-import { FormReg } from "../components/FormReg";
+import { FormReg } from "@/components/FormReg";
+
 
 
 const RegisterPage = () => {

@@ -1,4 +1,5 @@
 "use client"
+import { regUser } from "@/utils/api";
 import { useFormik } from "formik";
 import { useRef } from "react";
 import * as Yup from 'yup';
@@ -37,8 +38,19 @@ export const FormReg = () => {
 
   const checkboxRef = useRef<HTMLInputElement>(null);
 
-  const onSubmit = (values:TypeInitialValues) =>{
+  const onSubmit = async (values:TypeInitialValues) =>{
     //fetch('api/register)
+    try {
+      const newUser = {
+        nombre: values.username,
+        email: values.email,
+        password: values.password,
+      };
+      const usuarioCreado = await regUser(newUser);
+      console.log('Usuario creado:', usuarioCreado);
+    } catch (error) {
+      console.error('Error al crear el usuario:', error);
+    }
     console.log('Enviando valores', values);
   }
 
@@ -74,10 +86,12 @@ export const FormReg = () => {
           id="username"
           name="username"
           placeholder="Ingresa tu nombre de usuario"
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm px-2 p-1"
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm px-2 p-1 relative"
           onChange={handleChange}
         />
-        <small className="text-red-500">{errors.username}</small>
+        <div className="py-1">
+          <span className="text-red-500 text-xs absolute">{errors.username}</span>
+        </div>
       </div>
       <div>
         <label
@@ -94,7 +108,9 @@ export const FormReg = () => {
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm px-2 p-1"
           onChange={handleChange}
         />
-        <small className="text-red-500">{errors.password}</small>
+        <div className="py-1">
+          <span className="text-red-500 text-xs absolute">{errors.password}</span>
+        </div>
       </div>
       <div>
         <label
@@ -111,12 +127,16 @@ export const FormReg = () => {
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm px-2 p-1"
           onChange={handleChange}
         />
-        <small className="text-red-500">{errors.email}</small>
+        <div className="py-1">
+          <span className="text-red-500 text-xs absolute">{errors.email}</span>
+        </div>
       </div>
       <div>
         <input className="mr-2" type="checkbox" name="tyc"  ref={checkboxRef}   onChange={handleCheckboxChange} />
         <label htmlFor="terminos">Acepto terminos y condiciones</label>
-        <small className="text-red-500">{errors.tyc}</small>
+        <div className="py-1">
+          <span className="text-red-500 text-xs absolute">{errors.tyc}</span>
+        </div>
       </div>
       <div>
         <button

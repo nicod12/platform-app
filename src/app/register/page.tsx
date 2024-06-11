@@ -1,5 +1,7 @@
-import Navbar from "../layout/components/NavBar";
-import RegisterPage from "../layout/pages/RegisterPage";
+import Navbar from "@/components/NavBar";
+import RegisterPage from "@/pages/RegisterPage";
+
+
 
 export default function Register() {
   return (
